@@ -11,12 +11,9 @@
 var path = require('path');
 var _ = require('lodash');
 var chalk = require('chalk');
-var updateNotifier = require('update-notifier');
-var pkg = require('../package.json');
 
 module.exports = function (grunt) {
 	return grunt.registerMultiTask('robotstxt', 'Generates robots.txt', function () {
-		updateNotifier({pkg: pkg}).notify();
 		var root = path.normalize(this.data.dest || '.');
 		var rootWarnMess = 'No "dest" parameter defined. Using current directory.';
 		if (root === '.') {
